@@ -6,12 +6,12 @@
 ###### Use case statement to define the variable 'choice' to execute specific commands when a certain choice is chosen [i.e: 1-13]
 ###### Encase the previous commands described within a while loop so that the user can stay in the menu until they decide they want to exit
 
-#!/bin/bash
+**#!/bin/bash**
 
 ###### 'do' is included in Bash while loop to initiate loop 
-while true; do
+**while true; do**
 
-  echo "Sys Info Menu: "
+  **echo "Sys Info Menu: "
   echo "What information would you like to check?"
   echo "1. Currently logged users"
   echo "2. Your shell directory" 
@@ -25,81 +25,85 @@ while true; do
   echo "10. Memory information"
   echo "11. File system information"
   echo "12. Currently running processes"
-  echo "13. Exit"
+  echo "13. Exit"**
 
 
-  read -p "Choose your option [1-13]: " choice
+  **read -p "Choose your option [1-13]: " choice**
 
-  case $choice in
+  **case $choice in
    1)
     echo "Currently logged in users: $users" 
     users=$ whoami
-    ;;
+    ;;**
 
-   2)
+  **2)
     echo "Shell directory path: "
     echo "$SHELL"
-    ;;
-   3)
+    ;;**
+   **3)
     echo "Home directory: "
     echo "$HOME"
     cd ~
     ls -la
-    ;;
-   4)
-    echo "OS name and version: "
+    ;;**
+   **4)
+    echo "OS name and version: "**
 ###### prints out OS, kernel, version, and other detailed info
-   uname -a
-    
+   **uname -a**
 ###### shows linux os name and version & distribution software based in Linux 
     lsb_release -a
     ;;
-   5)
+   **5)
     echo "Current working directory: "
     pwd
-    ;;
-   6)
+    ;;**
+   **6)
     echo "Number of users logged in w/ usernames: $users"
     users=$ who -q
-    ;;
-   7)
-    echo "All available Shells in OS: "
+    ;;**
+  **7)
+    echo "All available Shells in OS: "**
 
 ###### path that shows all available shells in the OS and sorts them in alphabetical order
-    cat /etc/shells | sort
+   cat /etc/shells | sort
     ;;
-   9)
-    echo "Hard Disk Information: "
+   **8)
+    echo "Hard Disk Information: "**
 ###### displays size of files in directory
     du -a 
 ###### displays listed info more easily readable
     du -h
     ;;
-   11)
-    echo "CPU Information: "
+  **9)
+    echo "CPU Information: "**
 ###### displays detailed CPU specs
     lscpu
 ###### displays active CPU usage information including per core usage
     top
     ;;
-   13)
-    echo "Memory Information: "
+  **10)
+    echo "Memory Information: "**
 ###### displays memory usage in a human reasable format
     free -h
     ;;
-   15)
-    echo "File system information: "
+   **11)
+    echo "File system information: "**
 ###### displays a full list of files in OS
     df -a
 ###### displays sizes of files in directory
     du -a
     ;;
-   17)
-    echo "Currently running processes: "
+   **12)
+    echo "Currently running processes: "**
 
 ###### snapshots a view of running processes on system; 'e' selects all processes and 'f' displays full format listing
     ps -ef
    ;;
+
+    13)
+      echo "Exit"
+
+    ;;
 ###### non-numerical choice or not an option, user will be told the following message:
    *)
     echo "Invalid choice. Please choose again. "
