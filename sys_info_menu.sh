@@ -23,14 +23,14 @@ while true; do
 
   case $choice in
    1)
-    echo "Currently logged in users: $users" 
-    users=$ whoami
+    users=$(whoami)
+    echo "Currently logged in users: $users " 
     ;;
 
    2)
     Shell directory path:
     echo "$SHELL"
-   echo "Shell directory path: "
+    echo "Shell directory path: "
     ;;
    3)
     echo "$HOME"
@@ -48,8 +48,9 @@ while true; do
     pwd
     ;;
    6)
+    users=$(who -q)
     echo "Number of users logged in w/ usernames: $users"
-    users=$ who -q
+  
     ;;
    7)
     echo "All available Shells in OS: "
@@ -79,18 +80,16 @@ while true; do
     ps -ef
    ;;
 
+   13)
+    echo "Exiting"
+    exit
+    
    *)
-    echo "Invalid choice. Please choose again. "
+    echo "Invalid choice. Please choose [1-13]
 
  ;;
 
   esac
-
-  if $num -ge 13; then
-    echo "Exiting..."
-    break
-
-  fi
 
 
 done
